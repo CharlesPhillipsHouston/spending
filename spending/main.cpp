@@ -1,11 +1,12 @@
 //
 //  main.cpp
-//  spending
+//  spending - a test application to look at spending
 //
 //  Created by Charles Phillips on 6/28/25.
 //
 
 #include <iostream>
+#include <fstream>
 
 int main(int argc, const char * argv[]) {
     // insert code here...
