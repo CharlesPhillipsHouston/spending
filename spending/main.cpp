@@ -16,11 +16,18 @@ string day;
 string month;
 string year;
 string cost;
+string type;
 
 
 int main(int argc, const char * argv[]) 
 
 {
+string homeDir =getenv("HOME");
+
+string ifname = homeDir + "/Users/charlesphillips/Desktop/common_files/inputs.rtf";
+ifstream fin(ifname);
+
+
     // insert code here...
     std::cout << "Hello, World!\n";
     return 0;
