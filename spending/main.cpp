@@ -22,11 +22,13 @@ string type;
 int main(int argc, const char * argv[]) 
 
 {
-string homeDir =getenv("HOME");
+string homeDir = getenv("HOME");
 
 string ifname = homeDir + "/Users/charlesphillips/Desktop/common_files/inputs.rtf";
 ifstream fin(ifname);
-
+string ofname = homeDir +"/Users/charlesphillips/Desktop/common_files/outputs.rtf";
+    
+ofstream fout(ofname);
 
     // insert code here...
     std::cout << "Hello, World!\n";
