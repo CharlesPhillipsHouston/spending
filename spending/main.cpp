@@ -1,9 +1,9 @@
 //
 //  main.cpp
-//  spending - a test application to look at spending
-//
-//  Created by Charles Phillips on 6/28/25.
-//
+//  spending - a test application to look at spending and practice C++
+//  3 jul 2025 doesn't run yet :-(
+//  Created by Charles Phillips on 28 jun 2025
+//  currently does NOT read file, it did grrrr
 
 #include <iostream>
 #include <fstream>
@@ -24,11 +24,12 @@ int main(int argc, const char * argv[])
 
 {
 string homeDir = getenv("HOME");
+    cout<< "in main"<<endl;
 
-string ifname = homeDir + "/Users/charlesphillips/Desktop/common_files/inputs.rtf";
+string ifname = homeDir + "/Desktop/common_files/inputs.rtf";
 ifstream fin(ifname);
     
-string ofname = homeDir +"/Users/charlesphillips/Desktop/common_files/outputs.rtf";
+string ofname = homeDir + "/Desktop/common_files/outputs.rtf";
     
 ofstream fout(ofname);
     int i=0; // prepare to count in the while loop
@@ -36,10 +37,11 @@ ofstream fout(ofname);
     while (!fin.eof())
     {
         getline(fin, line);
-        fout<<"line"<<line;
+        cout<<"line"<<line<<endl;
         
         string location = line.substr(0,10);
-        fout<<"location"<<location<<endl;
+        cout<<"   location"<<  location<<endl;
+      //  fout<<" location"<< location<<endl;   // builds really big file, infinite loop
         ++i; // increment count
         
     }
