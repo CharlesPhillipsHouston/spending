@@ -1,7 +1,7 @@
 //
 //  main.cpp
-//  spending - a test application to look at spending and practice C++ input/output
-//  7 jul 2025 1800  runs good
+//  spending - a test application to look at spending and practice C++ input/output. I had receipts laying around
+//  9 jul 2025  runs good
 //  Created by Charles Phillips on 28 jun 2025
 //  currently does read file and outputs to file
 
@@ -24,11 +24,11 @@ int main(int argc, const char * argv[])
     string cost;
     string type;
     
-    string line="aaaaaaaaaaaaaa"; // get a line of text and then scan for fields
+  string line="aaaaaaaaaaaaaa"; // get a line of text and then scan for fields
     
     string homeDir = getenv("HOME");
 
-    string ifname = homeDir + "/Desktop/common_files/inputs";
+    string ifname = homeDir + "/Desktop/common_files/inputs.txt";
     string ofname = homeDir + "/Desktop/common_files/outputs";
     
     ifstream fin(ifname);
@@ -36,15 +36,26 @@ int main(int argc, const char * argv[])
     
     int i=0; // prepare to count in the while loop
     
-     
+    
+    while (i<2)
+        
+    /*    if(!fin.is_open())
+        {
+            cout << "file:" << ifname << "is not open, exiting" << endl;
+            exit(-1);
+        }
+      */
         {
             getline(fin, line);  // does not get the line on this step
             
         cout<<"line  "<<  line<<endl;
             
             string location = line.substr(0,6);  // does not read the input file!
+            string day = line.substr(7,9);  // does not read the input file!
             
             cout<<"   location  "<<  location<<endl;  // output to "console" ie screen
+            cout<< "  day  "<<  day<< endl;
+            
             cout<<" i="<< i<<endl;  // debug step
             fout<<"  line   "<< line << endl;  // funny that endl() isn't accepted
             fout<<"  location  "<<  location<< endl;  // output to file
