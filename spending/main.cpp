@@ -1,7 +1,7 @@
 //
 //  main.cpp
 //  spending - a test application to look at spending and practice C++ input/output. I had receipts laying around
-//  9 jul 2025  runs good
+//  14 jul 2025  runs good
 //  Created by Charles Phillips on 28 jun 2025
 //  currently does read file and outputs to file
 
@@ -15,7 +15,7 @@ using namespace std;
 int main(int argc, const char * argv[]) 
 
 {
-    cout<< "in main"<<endl;  // debug step
+   // cout<< "in main"<<endl;  // debug step
     
     string location="a"; // set up string + initial value
     string day="b";
@@ -36,29 +36,49 @@ int main(int argc, const char * argv[])
     
     int i=0; // prepare to count in the while loop
     
-    
-    while (i<2)
-        
-    /*    if(!fin.is_open())
+    while (!fin.eof())
+  
+     /*
+      if(!fin.is_open())
         {
             cout << "file:" << ifname << "is not open, exiting" << endl;
             exit(-1);
         }
-      */
+   else
+     {
+         cout << "file:" << ifname << " is open, proceeding" << endl;
+         return(0);
+     }
+ */
         {
             getline(fin, line);  // does not get the line on this step
             
-        cout<<"line  "<<  line<<endl;
+        cout<<"line: "<<  line<<endl;
+        
+            string location = line.substr(0,10);  // this assigns the first eleven char to "location"
             
-            string location = line.substr(0,6);  // does not read the input file!
-            string day = line.substr(7,9);  // does not read the input file!
+            size_t pos = line.find("\t"); // first "position" find a tab in line
+                    // pos = position??
+            string day = line.substr (pos +1,3); // get second field nine char
+       
+            size_t pos1 = line.find("\t"); // second "position" find a tab in line
+                    // pos = position??
+            string month = line.substr (pos1 +1,3); // get second field nine char
+       
+            cout<<"   location:  "<<  location<<endl;  // output to "console" ie screen
+            cout << "  day: "<< day<< endl;
+            cout << "  month:  " << month << endl;
             
-            cout<<"   location  "<<  location<<endl;  // output to "console" ie screen
-            cout<< "  day  "<<  day<< endl;
+       //     string location = line.find("\t");  // does not read the input file!
+       //     string day = line.substr("\t");  // does not read the input file!
             
-            cout<<" i="<< i<<endl;  // debug step
-            fout<<"  line   "<< line << endl;  // funny that endl() isn't accepted
-            fout<<"  location  "<<  location<< endl;  // output to file
+       
+     //       cout<< "  day  "<<  day<< endl;
+            
+       //     cout<<" i="<< i<<endl;  // debug step
+            fout<<"  line:   "<< line << endl;  // funny that endl() isn't accepted
+            fout<<"  location:  "<<  location<< endl;  // output to file
+            fout << "  day:  " << day << endl;
             
             ++i; // increment count
             
