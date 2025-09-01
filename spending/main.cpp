@@ -1,7 +1,7 @@
 //
 //  main.cpp
 //  spending - a test application to look at spending and practice C++ input/output. I had receipts laying around
-//  14 jul 2025  runs good
+//  22 aug 2025  runs good
 //  Created by Charles Phillips on 28 jun 2025
 //  currently does read file and outputs to file
 
@@ -55,7 +55,7 @@ int main(int argc, const char * argv[])
             
         cout<<"line: "<<  line<<endl;
         
-            string location = line.substr(0,10);  // this assigns the first eleven char to "location"
+            string location = line.substr(0,15);  // this assigns the first eleven char to "location"
             
             size_t pos = line.find("\t"); // first "position" find a tab in line
                     // pos = position??
@@ -65,9 +65,15 @@ int main(int argc, const char * argv[])
                     // pos = position??
             string month = line.substr (pos1 +1,3); // get second field nine char
        
-            cout<<"   location:  "<<  location<<endl;  // output to "console" ie screen
+            size_t pos2 = line.find("\t"); // third "position" find a tab in line
+                    // pos = position??
+            string year = line.substr (pos2 +1,3); // get second field nine char
+       
+            cout<<"   location:  "  <<  location <<endl;  // output to "console" ie screen
             cout << "  day: "<< day<< endl;
             cout << "  month:  " << month << endl;
+            cout << "  year: " << year << endl;
+            
             
        //     string location = line.find("\t");  // does not read the input file!
        //     string day = line.substr("\t");  // does not read the input file!
@@ -79,6 +85,7 @@ int main(int argc, const char * argv[])
             fout<<"  line:   "<< line << endl;  // funny that endl() isn't accepted
             fout<<"  location:  "<<  location<< endl;  // output to file
             fout << "  day:  " << day << endl;
+            fout << "  year:  " <<  year << endl;
             
             ++i; // increment count
             
